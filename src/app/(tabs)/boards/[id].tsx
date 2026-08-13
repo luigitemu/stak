@@ -1,5 +1,4 @@
 import { router, useLocalSearchParams } from "expo-router";
-import { useMemo } from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -17,10 +16,9 @@ export default function BoardDetailScreen() {
   const { findBoard, renameColumn, addColumn } = useBoard();
   const board = findBoard(id);
 
-  const filtered = useMemo(() => {
-    if (!board) return [];
-    return board.columns.map((c) => ({ ...c, done: /done/i.test(c.name) }));
-  }, [board]);
+  const filtered = board
+    ? board.columns.map((c) => ({ ...c, done: /done/i.test(c.name) }))
+    : [];
 
   if (!board) return null;
 

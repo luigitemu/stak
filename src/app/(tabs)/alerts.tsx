@@ -13,7 +13,7 @@ export default function AlertsScreen() {
         <View className="flex-1 items-center justify-center gap-3 px-8">
           <SFIcon name="bell.slash" size={36} color="#c7c7cc" />
           <Text className="text-center text-[15px] text-muted">
-            No alerts yet. You'll see mentions and due-date reminders here.
+            No alerts yet. You&apos;ll see mentions and due-date reminders here.
           </Text>
         </View>
       </SafeAreaView>

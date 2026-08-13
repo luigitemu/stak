@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { SFIcon, shadow } from "@/components/board-ui";
+import { shadow } from "@/components/board-shadows";
+import { SFIcon } from "@/components/board-ui";
 
 type Row = {
   key: string;

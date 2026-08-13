@@ -19,20 +19,22 @@ export function BoardDetailHeader({ title }: { title: string }) {
       <Text className="flex-1 text-[22px] font-bold text-ink" numberOfLines={1}>
         {title}
       </Text>
-      <Pressable
-        accessibilityRole="button"
-        accessibilityLabel="Search tasks"
-        hitSlop={10}
-      >
-        <SFIcon name="magnifyingglass" size={20} color="#007aff" />
-      </Pressable>
-      <Pressable
-        accessibilityRole="button"
-        accessibilityLabel="Board options"
-        hitSlop={10}
-      >
-        <SFIcon name="ellipsis.circle" size={22} color="#007aff" />
-      </Pressable>
+      <View className="flex-row items-center gap-8 ">
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Search tasks"
+          hitSlop={10}
+        >
+          <SFIcon name="magnifyingglass" size={20} color="#007aff" />
+        </Pressable>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Board options"
+          hitSlop={10}
+        >
+          <SFIcon name="ellipsis.circle" size={22} color="#007aff" />
+        </Pressable>
+      </View>
     </View>
   );
 }

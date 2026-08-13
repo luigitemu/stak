@@ -1,10 +1,11 @@
 import { Image } from "expo-image";
 import { router } from "expo-router";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { ProgressBar, SFIcon, shadow } from "@/components/board-ui";
+import { shadow } from "@/components/board-shadows";
+import { ProgressBar, SFIcon } from "@/components/board-ui";
 import { useBoard } from "@/lib/board-context";
 import { BOARD_COLORS, type Board } from "@/lib/board-types";
 
@@ -88,11 +89,10 @@ export default function BoardsScreen() {
   const { boards } = useBoard();
   const [q, setQ] = useState("");
 
-  const filtered = useMemo(() => {
-    const query = q.trim().toLowerCase();
-    if (!query) return boards;
-    return boards.filter((b) => b.name.toLowerCase().includes(query));
-  }, [boards, q]);
+  const query = q.trim().toLowerCase();
+  const filtered = query
+    ? boards.filter((b) => b.name.toLowerCase().includes(query))
+    : boards;
 
   const pinned = filtered.filter((b) => b.pinned);
   const rest = filtered.filter((b) => !b.pinned);

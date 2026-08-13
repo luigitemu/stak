@@ -1,6 +1,7 @@
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 
-import { Avatar, LabelPill, SFIcon, shadow } from "@/components/board-ui";
+import { shadow } from "@/components/board-shadows";
+import { Avatar, LabelPill, SFIcon } from "@/components/board-ui";
 import type { FilteredColumn, Task } from "@/lib/board-types";
 import { TEAM, TODAY, fmt } from "@/lib/board-types";
 

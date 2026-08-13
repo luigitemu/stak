@@ -1,11 +1,12 @@
-import { router, Stack, useLocalSearchParams } from 'expo-router';
-import { Pressable, ScrollView, Text, View } from 'react-native';
+import { router, Stack, useLocalSearchParams } from "expo-router";
+import type { ReactNode } from "react";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
-import { Avatar, SFIcon } from '@/components/board-ui';
-import { useBoard } from '@/lib/board-context';
-import { fmt, TEAM } from '@/lib/board-types';
-import { firstParam } from '@/lib/params';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Avatar, SFIcon } from "@/components/board-ui";
+import { useBoard } from "@/lib/board-context";
+import { fmt, TEAM } from "@/lib/board-types";
+import { firstParam } from "@/lib/params";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TaskDetailSheet() {
   const params = useLocalSearchParams<{ id: string; board: string }>();
@@ -38,11 +39,11 @@ export default function TaskDetailSheet() {
             {c.name}
           </Text>
         </View>
-        <View className="flex-row items-center gap-4">
+        <View className="flex-row items-center gap-4 bg-red">
           <Pressable
             onPress={() =>
               router.push({
-                pathname: '/task/edit',
+                pathname: "/task/edit",
                 params: { id: t.id, board: board.id },
               })
             }
@@ -91,7 +92,7 @@ export default function TaskDetailSheet() {
             <View className="flex-row items-center gap-2">
               {assignee && <Avatar uri={assignee.avatarUrl} size={26} />}
               <Text className="text-[15px] font-semibold text-ink">
-                {assignee?.name ?? '—'}
+                {assignee?.name ?? "—"}
               </Text>
             </View>
           </View>
@@ -102,7 +103,7 @@ export default function TaskDetailSheet() {
             <View className="flex-row items-center gap-1.5">
               <SFIcon name="calendar" size={14} color="#007aff" />
               <Text className="text-[15px] font-semibold text-primary">
-                {fmt(t.due) || '—'}
+                {fmt(t.due) || "—"}
               </Text>
             </View>
           </View>
@@ -114,7 +115,7 @@ export default function TaskDetailSheet() {
           </Text>
           <View className="rounded-2xl bg-card p-3.5">
             <Text className="text-[14px] leading-[20px] text-ink">
-              {t.notes || 'No description.'}
+              {t.notes || "No description."}
             </Text>
           </View>
         </View>
@@ -137,15 +138,15 @@ export default function TaskDetailSheet() {
                   accessibilityRole="checkbox"
                   accessibilityState={{ checked: item.done }}
                   accessibilityLabel={item.text}
-                  className={`flex-row items-center gap-3 px-3.5 py-3 ${i > 0 ? 'border-t border-border' : ''}`}
+                  className={`flex-row items-center gap-3 px-3.5 py-3 ${i > 0 ? "border-t border-border" : ""}`}
                 >
                   <SFIcon
-                    name={item.done ? 'checkmark.circle.fill' : 'circle'}
+                    name={item.done ? "checkmark.circle.fill" : "circle"}
                     size={20}
-                    color={item.done ? '#007aff' : '#c7c7cc'}
+                    color={item.done ? "#007aff" : "#c7c7cc"}
                   />
                   <Text
-                    className={`flex-1 text-[15px] ${item.done ? 'text-muted line-through' : 'text-ink'}`}
+                    className={`flex-1 text-[15px] ${item.done ? "text-muted line-through" : "text-ink"}`}
                   >
                     {item.text}
                   </Text>
@@ -160,9 +161,10 @@ export default function TaskDetailSheet() {
             Move to
           </Text>
           <View className="overflow-hidden rounded-2xl bg-card">
-            {board.columns
-              .filter((col) => col.id !== c.id)
-              .map((col, i) => (
+            {board.columns.reduce<ReactNode[]>((rows, col) => {
+              if (col.id === c.id) return rows;
+              const i = rows.length;
+              rows.push(
                 <Pressable
                   key={col.id}
                   onPress={() => {
@@ -171,12 +173,14 @@ export default function TaskDetailSheet() {
                   }}
                   accessibilityRole="button"
                   accessibilityLabel={`Move to ${col.name}`}
-                  className={`flex-row items-center justify-between px-3.5 py-3 ${i > 0 ? 'border-t border-border' : ''}`}
+                  className={`flex-row items-center justify-between px-3.5 py-3 ${i > 0 ? "border-t border-border" : ""}`}
                 >
                   <Text className="text-[15px] text-ink">{col.name}</Text>
                   <SFIcon name="arrow.right" size={14} color="#007aff" />
-                </Pressable>
-              ))}
+                </Pressable>,
+              );
+              return rows;
+            }, [])}
           </View>
         </View>
       </ScrollView>

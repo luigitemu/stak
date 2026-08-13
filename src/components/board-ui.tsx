@@ -1,26 +1,9 @@
 import { Host, Icon } from "@expo/ui";
 import type { SFSymbol } from "sf-symbols-typescript";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 import { labelColor } from "@/lib/board-types";
-
-export const shadow = StyleSheet.create({
-  card: {
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
-    shadowRadius: 8,
-    elevation: 1,
-  },
-  fab: {
-    shadowColor: "#007aff",
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.3,
-    shadowRadius: 16,
-    elevation: 8,
-  },
-});
 
 export function SFIcon({
   name,
