@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "agent-device": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "agent-device"
+      ]
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}

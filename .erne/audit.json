@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "project": "stak",
+  "date": "2026-08-12T19:16:22.597Z",
+  "score": 67,
+  "strengths": [
+    {
+      "category": "Security",
+      "title": "No hardcoded secrets detected in source"
+    },
+    {
+      "category": "Performance",
+      "title": "Reanimated available for UI thread animations"
+    },
+    {
+      "category": "Performance",
+      "title": "expo-image for optimized image loading"
+    },
+    {
+      "category": "Performance",
+      "title": "Hermes JS engine enabled"
+    },
+    {
+      "category": "Code Quality",
+      "title": "TypeScript enabled"
+    },
+    {
+      "category": "Code Quality",
+      "title": "TypeScript strict mode enabled"
+    },
+    {
+      "category": "Architecture",
+      "title": "Navigation: expo-router"
+    },
+    {
+      "category": "Dependencies",
+      "title": "Reasonable dependency count (26 packages)"
+    },
+    {
+      "category": "React Native",
+      "title": "Modern Expo SDK (57)"
+    },
+    {
+      "category": "React Native",
+      "title": "Native gesture handling configured"
+    },
+    {
+      "category": "React Native",
+      "title": "Safe area handling configured"
+    },
+    {
+      "category": "Code Quality",
+      "title": "Functional components (modern pattern)"
+    },
+    {
+      "category": "New Architecture",
+      "title": "New Architecture enabled"
+    },
+    {
+      "category": "New Architecture",
+      "title": "5 native dep(s) confirmed New Arch compatible"
+    },
+    {
+      "category": "Bundle Size",
+      "title": "No known heavy dependencies detected"
+    },
+    {
+      "category": "SDK Upgrade Readiness",
+      "title": "react-native-gesture-handler v2+ (modern)"
+    },
+    {
+      "category": "SDK Upgrade Readiness",
+      "title": "Running latest Expo SDK (57)"
+    },
+    {
+      "category": "SDK Upgrade Readiness",
+      "title": "No deprecated packages blocking SDK upgrade"
+    },
+    {
+      "category": "Circular Dependencies",
+      "title": "No circular dependencies detected (7 files scanned)"
+    },
+    {
+      "category": "Permissions",
+      "title": "No permission-requiring packages detected"
+    },
+    {
+      "category": "Deep Links",
+      "title": "Deep link scheme configured: \"stak\""
+    },
+    {
+      "category": "Deep Links",
+      "title": "expo-linking available for deep link handling"
+    },
+    {
+      "category": "Config Conflicts",
+      "title": "No config conflicts detected (2 plugins)"
+    },
+    {
+      "category": "Native Modules",
+      "title": "5 known native module(s) installed"
+    },
+    {
+      "category": "Native Modules",
+      "title": "No deprecated native modules detected"
+    },
+    {
+      "category": "Platform Parity",
+      "title": "Cross-platform codebase (no platform-specific files)"
+    }
+  ],
+  "findings": [
+    {
+      "severity": "warning",
+      "category": "Performance",
+      "title": "Using FlatList instead of FlashList",
+      "detail": "FlashList provides significantly better performance for large lists (100+ items).",
+      "fix": "npm install @shopify/flash-list"
+    },
+    {
+      "severity": "warning",
+      "category": "Performance",
+      "title": "1 component(s) exceed 250 lines",
+      "detail": "src/app/index.tsx (286 lines)",
+      "fix": "Extract sub-components to improve readability and performance"
+    },
+    {
+      "severity": "warning",
+      "category": "Architecture",
+      "title": "No error boundary detected",
+      "detail": "App crashes will show white screen instead of graceful error UI.",
+      "fix": "Add an ErrorBoundary component wrapping your root navigator"
+    },
+    {
+      "severity": "critical",
+      "category": "Testing",
+      "title": "No test files detected",
+      "detail": "No testing framework or tests found.",
+      "fix": "npx expo install jest @testing-library/react-native jest-expo"
+    },
+    {
+      "severity": "info",
+      "category": "Testing",
+      "title": "No E2E testing configured",
+      "detail": "End-to-end tests catch integration issues that unit tests miss.",
+      "fix": "Set up Detox or Maestro for E2E testing"
+    },
+    {
+      "severity": "warning",
+      "category": "Dependencies",
+      "title": "No lock file found",
+      "detail": "Without a lock file, builds may not be reproducible.",
+      "fix": "Run npm install to generate package-lock.json"
+    },
+    {
+      "severity": "info",
+      "category": "Code Quality",
+      "title": "No ESLint configuration detected",
+      "detail": "Linting helps maintain consistent code quality.",
+      "fix": "npx expo lint"
+    },
+    {
+      "severity": "info",
+      "category": "New Architecture",
+      "title": "13 native dep(s) with unknown New Arch compatibility",
+      "detail": "expo-constants, expo-device, expo-font, expo-glass-effect, expo-linking and 8 more",
+      "fix": "Check each library's documentation for New Architecture support"
+    },
+    {
+      "severity": "info",
+      "category": "Linting & Static Analysis",
+      "title": "1/4 code quality tools configured",
+      "detail": "Missing: ESLint, RN lint rules, Prettier",
+      "fix": "Set up ESLint"
+    }
+  ],
+  "stack": {
+    "state": "none",
+    "serverState": "none",
+    "navigation": "expo-router",
+    "styling": "nativewind",
+    "lists": "flatlist",
+    "images": "expo-image",
+    "forms": "none",
+    "storage": "async-storage",
+    "testing": "none",
+    "build": "manual"
+  },
+  "meta": {
+    "framework": "expo-bare",
+    "typescript": true,
+    "newArch": false,
+    "monorepo": false
+  }
+}

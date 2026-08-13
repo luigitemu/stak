@@ -1,5 +1,37 @@
 {
-  "enabledPlugins": {
-    "expo@claude-plugins-official": true
-  }
+  "erneVersion": "0.13.6",
+  "detection": {
+    "isRNProject": true,
+    "framework": "expo-bare",
+    "stack": {
+      "state": "none",
+      "serverState": "none",
+      "navigation": "expo-router",
+      "styling": "nativewind",
+      "lists": "flatlist",
+      "images": "expo-image",
+      "forms": "none",
+      "storage": "async-storage",
+      "testing": "none",
+      "build": "manual"
+    },
+    "hasMonorepo": false,
+    "monorepo": null,
+    "hasNewArch": false,
+    "hasTypescript": true,
+    "existingClaudeMd": true,
+    "componentStyle": "functional"
+  },
+  "profile": "strict",
+  "ruleLayers": [
+    "common",
+    "expo",
+    "bare-rn",
+    "native-ios"
+  ],
+  "mcpSelections": [
+    "agent-device",
+    "github"
+  ],
+  "generatedAt": "2026-08-12T19:16:22.384Z"
 }
