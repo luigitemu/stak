@@ -4,7 +4,7 @@
     "slug": "stak",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/app-icon.png",
     "scheme": "stak",
     "userInterfaceStyle": "light",
     "backgroundColor": "#f2f2f7",
@@ -16,16 +16,16 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/app-icon.png",
+        "backgroundImage": "./assets/app-icon.png",
+        "monochromeImage": "./assets/app-icon.png"
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.luartemu.stak"
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/app-icon.png"
     },
     "plugins": [
       "expo-router",
@@ -33,7 +33,7 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#007aff",
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/app-icon.png",
           "imageWidth": 76
         }
       ]

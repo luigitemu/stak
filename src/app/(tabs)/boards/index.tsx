@@ -8,13 +8,7 @@ import { shadow } from "@/components/board-shadows";
 import { ProgressBar, SFIcon } from "@/components/board-ui";
 import { useBoard } from "@/lib/board-context";
 import { BOARD_COLORS, type Board } from "@/lib/board-types";
-
-function activeTaskCount(board: Board) {
-  return board.columns.reduce(
-    (n, c) => n + (/done/i.test(c.name) ? 0 : c.tasks.length),
-    0,
-  );
-}
+import { PinnedCard } from "../../../components/home/PineedCard";
 
 function boardProgress(board: Board) {
   let total = 0;
@@ -24,35 +18,6 @@ function boardProgress(board: Board) {
     if (/done/i.test(c.name)) done += c.tasks.length;
   }
   return total === 0 ? 0 : done / total;
-}
-
-function PinnedCard({ board, onPress }: { board: Board; onPress: () => void }) {
-  const c = BOARD_COLORS[board.color];
-  return (
-    <Pressable
-      onPress={onPress}
-      accessibilityRole="button"
-      accessibilityLabel={board.name}
-      className="w-[150px] rounded-2xl bg-card p-4"
-      style={shadow.card}
-    >
-      <View className="mb-3 flex-row items-center justify-between">
-        <View
-          className="h-8 w-8 items-center justify-center rounded-full"
-          style={{ backgroundColor: c.bg }}
-        >
-          <SFIcon name={board.icon as never} size={16} color={c.fg} />
-        </View>
-        <SFIcon name="star.fill" size={16} color={c.fg} />
-      </View>
-      <Text className="mb-1 text-[17px] font-semibold text-ink">
-        {board.name}
-      </Text>
-      <Text className="text-[13px] text-muted">
-        {activeTaskCount(board)} active tasks
-      </Text>
-    </Pressable>
-  );
 }
 
 function BoardRow({ board, onPress }: { board: Board; onPress: () => void }) {

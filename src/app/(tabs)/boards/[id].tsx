@@ -13,7 +13,7 @@ import { firstParam } from "@/lib/params";
 export default function BoardDetailScreen() {
   const params = useLocalSearchParams<{ id: string }>();
   const id = firstParam(params.id)!;
-  const { findBoard, renameColumn, addColumn } = useBoard();
+  const { findBoard, renameColumn, addColumn, moveTask } = useBoard();
   const board = findBoard(id);
 
   const filtered = board
@@ -45,6 +45,9 @@ export default function BoardDetailScreen() {
           onAddColumn={() => addColumn(board.id)}
           onSelectTask={openTask}
           onAddTask={addTask}
+          onMoveTask={(taskId, colId, index) =>
+            moveTask(board.id, taskId, colId, index)
+          }
         />
       </SafeAreaView>
     </View>

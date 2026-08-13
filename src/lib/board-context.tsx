@@ -15,18 +15,23 @@ type BoardContextValue = {
   findBoard: (id: string | null | undefined) => Board | null;
   find: (
     boardId: string | null | undefined,
-    taskId: string | null | undefined,
+    taskId: string | null | undefined
   ) => Found | null;
   togglePinned: (boardId: string) => void;
   renameColumn: (boardId: string, colId: string, name: string) => void;
   addColumn: (boardId: string) => void;
-  moveTask: (boardId: string, id: string, colId: string) => void;
+  moveTask: (
+    boardId: string,
+    id: string,
+    colId: string,
+    index?: number
+  ) => void;
   saveTask: (draft: Draft) => string;
   deleteTask: (boardId: string, id: string) => void;
   toggleChecklistItem: (
     boardId: string,
     taskId: string,
-    itemId: string,
+    itemId: string
   ) => void;
 };
 
@@ -41,7 +46,7 @@ export function BoardProvider({ children }: { children: ReactNode }) {
 
   const find = (
     boardId: string | null | undefined,
-    taskId: string | null | undefined,
+    taskId: string | null | undefined
   ): Found | null => {
     const board = findBoard(boardId);
     if (!board || !taskId) return null;
@@ -78,7 +83,12 @@ export function BoardProvider({ children }: { children: ReactNode }) {
     setNextId((n) => n + 1);
   };
 
-  const moveTask = (boardId: string, id: string, colId: string) => {
+  const moveTask = (
+    boardId: string,
+    id: string,
+    colId: string,
+    index?: number
+  ) => {
     updateBoard(boardId, (b) => {
       let moved: Task | undefined;
       const stripped = b.columns.map((c) => {
@@ -90,9 +100,16 @@ export function BoardProvider({ children }: { children: ReactNode }) {
       if (!moved) return b;
       return {
         ...b,
-        columns: stripped.map((c) =>
-          c.id === colId ? { ...c, tasks: [...c.tasks, moved!] } : c,
-        ),
+        columns: stripped.map((c) => {
+          if (c.id !== colId) return c;
+          const at =
+            index === undefined
+              ? c.tasks.length
+              : Math.max(0, Math.min(index, c.tasks.length));
+          const tasks = c.tasks.slice();
+          tasks.splice(at, 0, moved!);
+          return { ...c, tasks };
+        }),
       };
     });
   };
@@ -124,7 +141,7 @@ export function BoardProvider({ children }: { children: ReactNode }) {
       return {
         ...b,
         columns: columns.map((c) =>
-          c.id === target.id ? { ...c, tasks: [...c.tasks, t] } : c,
+          c.id === target.id ? { ...c, tasks: [...c.tasks, t] } : c
         ),
       };
     });
@@ -145,7 +162,7 @@ export function BoardProvider({ children }: { children: ReactNode }) {
   const toggleChecklistItem = (
     boardId: string,
     taskId: string,
-    itemId: string,
+    itemId: string
   ) => {
     updateBoard(boardId, (b) => ({
       ...b,
@@ -157,9 +174,9 @@ export function BoardProvider({ children }: { children: ReactNode }) {
             : {
                 ...t,
                 checklist: t.checklist.map((item) =>
-                  item.id === itemId ? { ...item, done: !item.done } : item,
+                  item.id === itemId ? { ...item, done: !item.done } : item
                 ),
-              },
+              }
         ),
       })),
     }));

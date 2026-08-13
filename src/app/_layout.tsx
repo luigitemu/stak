@@ -11,6 +11,7 @@ import {
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { BoardProvider } from "@/lib/board-context";
 
@@ -32,22 +33,24 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
 
   return (
-    <BoardProvider>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen
-          name="task/[id]"
-          options={{ contentStyle: { backgroundColor: "#f2f2f7" } }}
-        />
-        <Stack.Screen
-          name="task/edit"
-          options={{
-            headerShown: true,
-            presentation: "modal",
-            contentStyle: { backgroundColor: "#f2f2f7" },
-          }}
-        />
-      </Stack>
-    </BoardProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <BoardProvider>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen
+            name="task/[id]"
+            options={{ contentStyle: { backgroundColor: "#f2f2f7" } }}
+          />
+          <Stack.Screen
+            name="task/edit"
+            options={{
+              headerShown: true,
+              presentation: "modal",
+              contentStyle: { backgroundColor: "#f2f2f7" },
+            }}
+          />
+        </Stack>
+      </BoardProvider>
+    </GestureHandlerRootView>
   );
 }
