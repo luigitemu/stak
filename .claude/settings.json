@@ -33,5 +33,17 @@
     "agent-device",
     "github"
   ],
-  "generatedAt": "2026-08-12T19:16:22.384Z"
+  "generatedAt": "2026-08-12T19:16:22.384Z",
+  "hooks": {
+    "PostToolBatch": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/react-doctor.mjs\""
+          }
+        ]
+      }
+    ]
+  }
 }
