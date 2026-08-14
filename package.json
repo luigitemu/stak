@@ -31,10 +31,15 @@
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
+    "@testing-library/react-native": "^14.0.1",
+    "@types/jest": "^30.0.0",
     "@types/react": "~19.2.2",
     "eslint": "^9.0.0",
     "eslint-config-expo": "~57.0.1",
+    "jest": "~29.7.0",
+    "jest-expo": "~57.0.4",
     "react-doctor": "^0.9.12",
+    "react-test-renderer": "19.2.3",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -44,7 +49,38 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "doctor": "npx react-doctor@latest"
+    "doctor": "npx react-doctor@latest",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "clearMocks": true,
+    "resolver": "react-native-worklets/jest/resolver.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.css$": "<rootDir>/__mocks__/styleMock.js",
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "^@expo/ui$": "<rootDir>/__mocks__/expo-ui.js",
+      "^@expo/ui/community/datetime-picker$": "<rootDir>/__mocks__/expo-ui-datetime-picker.js",
+      "^expo-image$": "<rootDir>/__mocks__/expo-image.js",
+      "^expo-router/unstable-native-tabs$": "<rootDir>/__mocks__/expo-router-native-tabs.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|react-native-gesture-handler|react-native-reanimated|react-native-safe-area-context|react-native-screens))"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/global.css"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 80,
+        "branches": 70
+      }
+    }
+  }
 }
