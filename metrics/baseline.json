@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-08-14T19:20:51.967Z",
+  "coverage": {
+    "statements": 86.23,
+    "branches": 80,
+    "functions": 85.22,
+    "lines": 85.29
+  },
+  "mutation": {
+    "score": 81.13,
+    "killed": 210,
+    "survived": 50,
+    "noCoverage": 0,
+    "timeout": 5,
+    "total": 265
+  },
+  "complexity": {
+    "max": 6
+  },
+  "modules": {
+    "maxLines": 231
+  },
+  "deps": {
+    "cycles": 0,
+    "layerViolations": 0,
+    "unresolved": 0,
+    "orphans": 0
+  },
+  "bundle": {
+    "iosBytes": 3912355,
+    "files": [
+      {
+        "name": "entry-915e52a5eb3f5b21857fa5329d6c87f9.hbc",
+        "size": 3912355
+      }
+    ]
+  }
+}

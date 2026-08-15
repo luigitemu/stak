@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "testRunner": "jest",
+  "coverageAnalysis": "off",
+  "packageManager": "npm",
+  "mutate": [
+    "src/lib/**/*.ts?(x)",
+    "!src/**/*.test.*",
+    "!src/lib/board-fixtures.ts",
+    "!src/lib/board-context.tsx"
+  ],
+  "jest": {
+    "projectType": "custom",
+    "configFile": "package.json",
+    "enableFindRelatedTests": true
+  },
+  "reporters": ["progress", "json", "html", "clear-text"],
+  "jsonReporter": {
+    "fileName": "reports/mutation.json"
+  },
+  "htmlReporter": {
+    "fileName": "reports/mutation.html"
+  },
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": 55
+  },
+  "disableTypeChecks": "src/**/*.{ts,tsx}",
+  "ignorePatterns": [
+    "/.cursor",
+    "/.claude",
+    "/.erne",
+    "/.expo",
+    "/.git",
+    "/coverage",
+    "/reports",
+    "/dist",
+    "/ios",
+    "/android",
+    "/example"
+  ],
+  "incremental": true,
+  "incrementalFile": "reports/stryker-incremental.json",
+  "timeoutMS": 10000,
+  "dryRunTimeoutMinutes": 5,
+  "concurrency": 4,
+  "tempDirName": ".stryker-tmp"
+}

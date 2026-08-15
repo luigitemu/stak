@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react-native";
 
-import RootLayout from "./_layout";
+import RootLayout from "@/app/_layout";
 
 // Our expo-router mock's <Stack> doesn't implement real file-based route
 // resolution (Stack.Screen only carries `name`/`options`, no matched route

@@ -2,7 +2,7 @@ import { act, renderHook } from "@testing-library/react-native";
 import type { ReactNode } from "react";
 
 import { BoardProvider, useBoard } from "@/lib/board-context";
-import { INITIAL_BOARDS } from "@/lib/board-types";
+import { INITIAL_BOARDS } from "@/lib/board-fixtures";
 
 function wrapper({ children }: { children: ReactNode }) {
   return <BoardProvider>{children}</BoardProvider>;

@@ -1,7 +1,7 @@
 import { Pressable, Text, View } from "react-native";
-import { BOARD_COLORS, Board } from "../../lib/board-types";
-import { shadow } from "../board-shadows";
-import { SFIcon } from "../board-ui";
+import { shadow } from "@/components/board-shadows";
+import { SFIcon } from "@/components/board-ui";
+import { BOARD_COLORS, type Board } from "@/lib/board-types";
 
 function activeTaskCount(board: Board) {
   return board.columns.reduce(

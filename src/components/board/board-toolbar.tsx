@@ -2,7 +2,7 @@ import { router } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
 import { Avatar, SFIcon } from "@/components/board-ui";
-import { TEAM } from "@/lib/board-types";
+import { TEAM } from "@/lib/board-fixtures";
 
 export function BoardDetailHeader({ title }: { title: string }) {
   return (

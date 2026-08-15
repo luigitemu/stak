@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react-native";
 
-import SettingsScreen from "./settings";
+import SettingsScreen from "@/app/(tabs)/settings";
 
 test("renders account and support rows", async () => {
   await render(<SettingsScreen />);

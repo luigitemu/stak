@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react-native";
 import { router, useLocalSearchParams } from "expo-router";
 
 import { BoardProvider } from "@/lib/board-context";
-import TaskDetailSheet from "./[id]";
+import TaskDetailSheet from "@/app/task/[id]";
 
 const mockUseLocalSearchParams = useLocalSearchParams as jest.Mock;
 

@@ -38,6 +38,9 @@ yarn-error.*
 
 # testing
 coverage/
+reports/
+.stryker-tmp/
+metrics/current.json
 
 example
 

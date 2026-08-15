@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react-native";
 import { router } from "expo-router";
 
 import { BoardProvider } from "@/lib/board-context";
-import BoardsScreen from "./index";
+import BoardsScreen from "@/app/(tabs)/boards/index";
 
 function renderScreen() {
   return render(
@@ -52,4 +52,35 @@ test("pressing an unpinned board row navigates to /boards/[id]", async () => {
     pathname: "/boards/[id]",
     params: { id: "b3" },
   });
+});
+
+function unpinnedRowOrder() {
+  const names = ["Frontend Overhaul", "Q3 Marketing", "Hiring Pipeline"];
+  return screen
+    .getAllByRole("button")
+    .map((el) => el.props.accessibilityLabel)
+    .filter((label) => names.includes(label));
+}
+
+test("pressing Sort toggles All Boards between ascending and descending name order", async () => {
+  await renderScreen();
+  expect(unpinnedRowOrder()).toEqual([
+    "Frontend Overhaul",
+    "Hiring Pipeline",
+    "Q3 Marketing",
+  ]);
+
+  await fireEvent.press(screen.getByRole("button", { name: "Sort boards" }));
+  expect(unpinnedRowOrder()).toEqual([
+    "Q3 Marketing",
+    "Hiring Pipeline",
+    "Frontend Overhaul",
+  ]);
+
+  await fireEvent.press(screen.getByRole("button", { name: "Sort boards" }));
+  expect(unpinnedRowOrder()).toEqual([
+    "Frontend Overhaul",
+    "Hiring Pipeline",
+    "Q3 Marketing",
+  ]);
 });

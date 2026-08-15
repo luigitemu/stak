@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react-native";
 
-import { PinnedCard } from "@/components/home/PineedCard";
+import { PinnedCard } from "@/components/home/PinnedCard";
 import type { Board } from "@/lib/board-types";
 
 function makeBoard(overrides: Partial<Board> = {}): Board {

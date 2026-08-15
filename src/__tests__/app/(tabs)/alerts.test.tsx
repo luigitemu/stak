@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react-native";
 
-import AlertsScreen from "./alerts";
+import AlertsScreen from "@/app/(tabs)/alerts";
 
 test("renders the empty alerts state", async () => {
   await render(<AlertsScreen />);

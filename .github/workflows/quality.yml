@@ -1,0 +1,131 @@
+name: Quality gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: static
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck
+      - run: bun run lint
+      - run: bun run test:coverage
+      - run: bun run metrics:eslint
+      - run: bun run deps
+      - run: bun run deps:graph
+      - run: bun run export:size
+        env:
+          EXPO_NO_TELEMETRY: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: static-metrics
+          if-no-files-found: error
+          path: |
+            coverage/coverage-summary.json
+            reports/eslint-metrics.json
+            reports/deps.json
+            reports/deps.mmd
+            reports/bundle-size.json
+
+  mutation:
+    name: mutation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run mutate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mutation-metrics
+          if-no-files-found: error
+          path: reports/mutation.json
+
+  gate:
+    name: gate
+    runs-on: ubuntu-latest
+    needs: [static, mutation]
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+          path: .
+      - name: Collect
+        run: node scripts/metrics.mjs collect
+      - name: Check
+        id: check
+        continue-on-error: true
+        run: |
+          set +e
+          node scripts/metrics.mjs check
+          STATUS=$?
+          node scripts/metrics.mjs report >> "$GITHUB_STEP_SUMMARY"
+          exit $STATUS
+      - name: Comment on pull request
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('reports/metrics.md', 'utf8');
+            const marker = '<!-- quality-gate -->';
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find((c) => c.body?.includes(marker));
+            const payload = { body: `${marker}\n${body}` };
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                ...payload,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                ...payload,
+              });
+            }
+      - name: Accept baseline on main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.check.outcome == 'success'
+        run: |
+          node scripts/metrics.mjs accept
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add metrics/baseline.json
+          if git diff --cached --quiet; then
+            echo "Baseline unchanged"
+            exit 0
+          fi
+          git commit -m "chore(metrics): ratchet baseline [skip ci]"
+          git push
+      - name: Fail on regression
+        if: steps.check.outcome == 'failure'
+        run: exit 1

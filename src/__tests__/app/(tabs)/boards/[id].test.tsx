@@ -2,7 +2,7 @@ import { act, fireEvent, render, screen } from "@testing-library/react-native";
 import { router, useLocalSearchParams } from "expo-router";
 
 import { BoardProvider } from "@/lib/board-context";
-import BoardDetailScreen from "./[id]";
+import BoardDetailScreen from "@/app/(tabs)/boards/[id]";
 
 // BoardView has its own dedicated test file (board-view.test.tsx). Mocking
 // it here isolates this screen's wiring: the callbacks it hands to

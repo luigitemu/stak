@@ -5,7 +5,7 @@ import {
   BoardDetailHeader,
   BoardDetailToolbar,
 } from "@/components/board/board-toolbar";
-import { TEAM } from "@/lib/board-types";
+import { TEAM } from "@/lib/board-fixtures";
 
 describe("BoardDetailHeader", () => {
   test("renders the board title", async () => {
