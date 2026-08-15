@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { BoardProvider } from "@/lib/board-context";
+import { GlassView } from "expo-glass-effect";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -54,9 +55,7 @@ export default function RootLayout() {
             options={{
               headerShown: true,
               presentation: "modal",
-              // sheetAllowedDetents: [0.5, 1],
-              // sheetGrabberVisible: true,
-              // contentStyle: { backgroundColor: "#f2f2f7" },
+              headerBackground: () => <GlassView />,
             }}
           />
         </Stack>

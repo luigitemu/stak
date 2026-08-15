@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react-native";
 import { router } from "expo-router";
+import { ActionSheetIOS } from "react-native";
 
 import { BoardProvider, useBoard } from "@/lib/board-context";
 import CreateBoardSheet from "@/app/board/create";
@@ -103,12 +104,34 @@ test("Create with a blank name does not save", async () => {
   expect(getApi().boards).toHaveLength(before);
 });
 
-test("Cancel navigates back without creating a board", async () => {
+test("Cancel navigates back immediately when the form is untouched", async () => {
   const { getApi } = await renderScreen();
   const before = getApi().boards.length;
 
   await fireEvent.press(screen.getByRole("button", { name: "Cancel" }));
 
   expect(getApi().boards).toHaveLength(before);
+  expect(router.back).toHaveBeenCalledTimes(1);
+});
+
+test("Cancel with unsaved changes asks to discard before navigating back", async () => {
+  const showActionSheet = jest
+    .spyOn(ActionSheetIOS, "showActionSheetWithOptions")
+    .mockImplementation(() => {});
+  await renderScreen();
+
+  await fireEvent.changeText(
+    screen.getByPlaceholderText("Board name"),
+    "Launch Plan"
+  );
+  await fireEvent.press(screen.getByRole("button", { name: "Cancel" }));
+
+  expect(showActionSheet).toHaveBeenCalledTimes(1);
+  expect(router.back).not.toHaveBeenCalled();
+
+  const [options, callback] = showActionSheet.mock.calls[0];
+  expect(options.options[0]).toBe("Discard Changes");
+  callback(0);
+
   expect(router.back).toHaveBeenCalledTimes(1);
 });

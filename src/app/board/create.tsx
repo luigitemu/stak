@@ -1,12 +1,17 @@
 import { Stack, router } from "expo-router";
 import { useState } from "react";
-import { Pressable, ScrollView, TextInput, View } from "react-native";
+import {
+  ActionSheetIOS,
+  Alert,
+  Pressable,
+  ScrollView,
+  TextInput,
+  View,
+} from "react-native";
 
 import { SFIcon } from "@/components/board-ui";
 import { useBoard } from "@/lib/board-context";
 import { BOARD_COLORS, BOARD_ICONS, type BoardColor } from "@/lib/board-types";
-
-const RED = "#ff3b30";
 
 type IconPickerProps = {
   icon: (typeof BOARD_ICONS)[number];
@@ -115,9 +120,9 @@ function HeaderButton({ onPress, label, icon, color }: HeaderButtonProps) {
       hitSlop={12}
       accessibilityRole="button"
       accessibilityLabel={label}
-      className="h-9 w-9 items-center justify-center rounded-full bg-card"
+      className="h-10 w-10 items-center justify-center rounded-full   active:opacity-80"
     >
-      <SFIcon name={icon} size={16} color={color} />
+      <SFIcon name={icon} size={18} color={color} />
     </Pressable>
   );
 }
@@ -132,6 +137,8 @@ export default function CreateBoardSheet() {
 
   const trimmedName = name.trim();
   const isValid = trimmedName.length > 0;
+  const isDirty =
+    trimmedName.length > 0 || icon !== BOARD_ICONS[0] || color !== "orange";
 
   const create = () => {
     if (!isValid) {
@@ -141,6 +148,35 @@ export default function CreateBoardSheet() {
     router.replace({ pathname: "/boards/[id]", params: { id } });
   };
 
+  const cancel = () => {
+    if (!isDirty) {
+      router.back();
+      return;
+    }
+    if (process.env.EXPO_OS === "ios") {
+      ActionSheetIOS.showActionSheetWithOptions(
+        {
+          title: "Discard this board?",
+          options: ["Discard Changes", "Keep Editing"],
+          destructiveButtonIndex: 0,
+          cancelButtonIndex: 1,
+        },
+        (buttonIndex) => {
+          if (buttonIndex === 0) router.back();
+        }
+      );
+      return;
+    }
+    Alert.alert("Discard this board?", "Your changes will be lost.", [
+      { text: "Keep Editing", style: "cancel" },
+      {
+        text: "Discard Changes",
+        style: "destructive",
+        onPress: () => router.back(),
+      },
+    ]);
+  };
+
   return (
     <View className="flex-1 bg-sheet">
       <Stack.Screen
@@ -148,7 +184,7 @@ export default function CreateBoardSheet() {
           title: "New board",
           headerLeft: () => (
             <HeaderButton
-              onPress={() => router.back()}
+              onPress={cancel}
               label="Cancel"
               icon="xmark"
               color="#8e8e93"
