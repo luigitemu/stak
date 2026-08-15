@@ -1,4 +1,5 @@
 import {
+  addBoard,
   addColumn,
   deleteTask,
   find,
@@ -43,6 +44,40 @@ describe("findBoard", () => {
   test("returns null when the id is missing", () => {
     expect(findBoard(boards(), undefined)).toBeNull();
     expect(findBoard(boards(), null)).toBeNull();
+  });
+});
+
+describe("addBoard", () => {
+  test("appends a new board with seeded columns", () => {
+    const result = addBoard(boards(), "b9", {
+      name: "Launch Plan",
+      icon: "flag.fill",
+      color: "sky",
+    });
+    const board = result.at(-1);
+    expect(board).toMatchObject({
+      id: "b9",
+      name: "Launch Plan",
+      icon: "flag.fill",
+      color: "sky",
+      pinned: false,
+      updatedLabel: "Just now",
+    });
+    expect(board?.columns.map((c) => c.name)).toEqual([
+      "To Do",
+      "In Progress",
+      "Done",
+    ]);
+    expect(result).toHaveLength(boards().length + 1);
+  });
+
+  test("falls back to a default name when blank", () => {
+    const result = addBoard(boards(), "b9", {
+      name: "   ",
+      icon: "flag.fill",
+      color: "sky",
+    });
+    expect(result.at(-1)?.name).toBe("Untitled board");
   });
 });
 

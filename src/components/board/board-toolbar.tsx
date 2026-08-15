@@ -6,7 +6,7 @@ import { TEAM } from "@/lib/board-fixtures";
 
 export function BoardDetailHeader({ title }: { title: string }) {
   return (
-    <View className="flex-row items-center gap-2 px-4 pb-3 pt-1">
+    <View className="flex-row items-center gap-2 px-4 pb-3 pt-1 w-full">
       <Pressable
         onPress={() => router.back()}
         hitSlop={12}

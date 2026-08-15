@@ -2,7 +2,7 @@ import { createContext, use, useState, type ReactNode } from "react";
 
 import { INITIAL_BOARDS } from "@/lib/board-fixtures";
 import * as ops from "@/lib/board-ops";
-import type { Board, Draft } from "@/lib/board-types";
+import type { Board, BoardColor, Draft } from "@/lib/board-types";
 
 type BoardContextValue = {
   boards: Board[];
@@ -11,6 +11,7 @@ type BoardContextValue = {
     boardId: string | null | undefined,
     taskId: string | null | undefined
   ) => ops.Found | null;
+  addBoard: (name: string, icon: string, color: BoardColor) => string;
   togglePinned: (boardId: string) => void;
   renameColumn: (boardId: string, colId: string, name: string) => void;
   addColumn: (boardId: string) => void;
@@ -39,6 +40,12 @@ export function BoardProvider({ children }: { children: ReactNode }) {
     boards,
     findBoard: (id) => ops.findBoard(boards, id),
     find: (boardId, taskId) => ops.find(boards, boardId, taskId),
+    addBoard: (name, icon, color) => {
+      const id = `b${nextId}`;
+      setBoards((prev) => ops.addBoard(prev, id, { name, icon, color }));
+      setNextId((n) => n + 1);
+      return id;
+    },
     togglePinned: (boardId) =>
       setBoards((prev) => ops.togglePinned(prev, boardId)),
     renameColumn: (boardId, colId, name) =>

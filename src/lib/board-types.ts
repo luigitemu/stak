@@ -28,7 +28,8 @@ export type Draft = {
   col: string;
 };
 
-export type BoardColor = "orange" | "green" | "indigo" | "pink" | "sky";
+
+export type BoardColor = "orange" | "green" | "indigo" | "pink" | "sky" | "yellow" | "red" | "teal" | "blue" | "gray" | "purple";
 
 export type Board = {
   id: string;
@@ -46,7 +47,80 @@ export const BOARD_COLORS: Record<BoardColor, { fg: string; bg: string }> = {
   indigo: { fg: "#5856d6", bg: "rgba(88,86,214,0.1)" },
   pink: { fg: "#ff2d55", bg: "rgba(255,45,85,0.1)" },
   sky: { fg: "#5ac8fa", bg: "rgba(90,200,250,0.1)" },
+  yellow: { fg: "#ffd600", bg: "rgba(255,214,0,0.1)" },
+  red: { fg: "#ff3b30", bg: "rgba(255,59,48,0.1)" },
+  teal: { fg: "#50e3c2", bg: "rgba(80,227,194,0.1)" },
+  blue: { fg: "#007aff", bg: "rgba(0,122,255,0.1)" },
+  gray: { fg: "#8e8e93", bg: "rgba(142,142,147,0.1)" },
+  purple: { fg: "#9c27b0", bg: "rgba(156,39,176,0.1)" },
 };
+
+export const BOARD_ICONS = [
+  "folder.fill",
+  "list.bullet",
+  "bookmark.fill",
+  "key.fill",
+  "gift.fill",
+  "birthday.cake.fill",
+  "graduationcap.fill",
+  "backpack.fill",
+  "ruler.fill",
+  "doc.fill",
+  "book.fill",
+  "tray.full.fill",
+  "creditcard.fill",
+  "banknote.fill",
+  "dumbbell.fill",
+  "figure.run",
+  "fork.knife",
+  "wineglass.fill",
+  "pills.fill",
+  "stethoscope",
+  "chair.fill",
+  "house.fill",
+  "building.2.fill",
+  "building.columns.fill",
+  "tent.fill",
+  "tv.fill",
+  "music.note",
+  "laptopcomputer",
+  "gamecontroller.fill",
+  "headphones",
+  "leaf.fill",
+  "syringe.fill",
+  "person.fill",
+  "person.2.fill",
+  "person.3.fill",
+  "star.fill",
+  "flag.fill",
+  "heart.fill",
+  "bolt.fill",
+  "paperplane.fill",
+  "briefcase.fill",
+  "cart.fill",
+  // Additional icons
+  "bicycle",
+  "car.fill",
+  "airplane",
+  "pawprint.fill",
+  "paintbrush.fill",
+  "camera.fill",
+  "globe",
+  "calendar",
+  "alarm.fill",
+  "clock.fill",
+  "moon.fill",
+  "sun.max.fill",
+  "cloud.fill",
+  "sparkles",
+  "chart.bar.fill",
+  "bell.fill",
+  "envelope.fill",
+  "magnifyingglass",
+  "wifi",
+  "cube.box.fill",
+  "wand.and.stars",
+] as const;
 
 const LABEL_COLOR_ORDER: BoardColor[] = [
   "orange",
@@ -54,6 +128,12 @@ const LABEL_COLOR_ORDER: BoardColor[] = [
   "sky",
   "pink",
   "green",
+  "yellow",
+  "red",
+  "teal",
+  "blue",
+  "gray",
+  "purple",
 ];
 
 export function labelColor(label: string) {

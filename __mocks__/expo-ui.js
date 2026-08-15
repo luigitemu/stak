@@ -46,6 +46,9 @@ function TextInput({
   placeholder,
   multiline,
   numberOfLines,
+  autoFocus,
+  returnKeyType,
+  onSubmitEditing,
 }) {
   return React.createElement(RNTextInput, {
     defaultValue,
@@ -53,6 +56,9 @@ function TextInput({
     placeholder,
     multiline,
     numberOfLines,
+    autoFocus,
+    returnKeyType,
+    onSubmitEditing,
   });
 }
 
@@ -80,6 +86,16 @@ function FieldGroupSection({ title, children }) {
   );
 }
 FieldGroup.Section = FieldGroupSection;
+
+function FieldGroupSectionFooter({ children }) {
+  return React.createElement(RNText, null, children);
+}
+FieldGroup.SectionFooter = FieldGroupSectionFooter;
+
+function FieldGroupSectionHeader({ children }) {
+  return React.createElement(RNText, null, children);
+}
+FieldGroup.SectionHeader = FieldGroupSectionHeader;
 
 module.exports = {
   Host,

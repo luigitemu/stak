@@ -82,6 +82,7 @@
       "^@/(.*)$": "<rootDir>/src/$1",
       "^@expo/ui$": "<rootDir>/__mocks__/expo-ui.js",
       "^@expo/ui/community/datetime-picker$": "<rootDir>/__mocks__/expo-ui-datetime-picker.js",
+      "^@expo/ui/swift-ui$": "<rootDir>/__mocks__/expo-ui-swift-ui.js",
       "^expo-image$": "<rootDir>/__mocks__/expo-image.js",
       "^expo-router/unstable-native-tabs$": "<rootDir>/__mocks__/expo-router-native-tabs.js"
     },

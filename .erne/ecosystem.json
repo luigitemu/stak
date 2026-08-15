@@ -1,6 +1,171 @@
 {
-  "fetchedAt": "2026-08-14T22:44:12.313Z",
+  "fetchedAt": "2026-08-15T10:44:24.077Z",
   "items": [
+    {
+      "type": "release",
+      "tag": "SEC",
+      "package": "axios",
+      "repo": "axios/axios",
+      "title": "v1.19.0",
+      "summary": "## v1.19.0 - July 22, 2026\r",
+      "version": {
+        "current": null,
+        "latest": "1.19.0"
+      },
+      "url": "https://github.com/axios/axios/releases/tag/v1.19.0",
+      "timestamp": "2026-07-26T14:13:32Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "react-native-screens",
+      "repo": "software-mansion/react-native-screens",
+      "title": "4.27.0",
+      "summary": "## What's changed\r",
+      "version": {
+        "current": null,
+        "latest": "4.27.0"
+      },
+      "url": "https://github.com/software-mansion/react-native-screens/releases/tag/4.27.0",
+      "timestamp": "2026-08-07T07:21:34Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "nativewind",
+      "repo": "nativewind/nativewind",
+      "title": "react-native-css-interop@0.2.6",
+      "summary": "### Patch Changes",
+      "version": {
+        "current": null,
+        "latest": "react-native-css-interop@0.2.6"
+      },
+      "url": "https://github.com/nativewind/nativewind/releases/tag/react-native-css-interop%400.2.6",
+      "timestamp": "2026-06-22T21:27:22Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "@shopify/flash-list",
+      "repo": "Shopify/flash-list",
+      "title": "v2.3.2",
+      "summary": "## What's Changed\r",
+      "version": {
+        "current": null,
+        "latest": "2.3.2"
+      },
+      "url": "https://github.com/Shopify/flash-list/releases/tag/v2.3.2",
+      "timestamp": "2026-06-10T06:05:22Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "@reduxjs/toolkit",
+      "repo": "reduxjs/redux-toolkit",
+      "title": "v2.12.0",
+      "summary": "This **feature release** adds RTK usage skills files (via TanStack Intent) exports the RTK Query hook options types for ",
+      "version": {
+        "current": null,
+        "latest": "2.12.0"
+      },
+      "url": "https://github.com/reduxjs/redux-toolkit/releases/tag/v2.12.0",
+      "timestamp": "2026-05-15T14:38:12Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "react-native-gesture-handler",
+      "repo": "software-mansion/react-native-gesture-handler",
+      "title": "v3.2.1",
+      "summary": "## 🐛 Bug fixes\r",
+      "version": {
+        "current": null,
+        "latest": "3.2.1"
+      },
+      "url": "https://github.com/software-mansion/react-native-gesture-handler/releases/tag/v3.2.1",
+      "timestamp": "2026-08-14T09:44:43Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "BREAK",
+      "package": "@gluestack-ui/themed",
+      "repo": "gluestack/gluestack-ui",
+      "title": "🚀 gluestack-ui v5 - Stable Release",
+      "summary": "We are incredibly excited to announce the stable release of **gluestack-ui v5**! This major update brings our alpha work",
+      "version": {
+        "current": null,
+        "latest": "5.0.0"
+      },
+      "url": "https://github.com/gluestack/gluestack-ui/releases/tag/v5.0.0",
+      "timestamp": "2026-06-25T06:44:03Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "@react-navigation/native",
+      "repo": "react-navigation/react-navigation",
+      "title": "@react-navigation/stack@7.10.22",
+      "summary": "## [7.10.22](https://github.com/react-navigation/react-navigation/compare/@react-navigation/stack@7.10.21...@react-navig",
+      "version": {
+        "current": null,
+        "latest": "@react-navigation/stack@7.10.22"
+      },
+      "url": "https://github.com/react-navigation/react-navigation/releases/tag/%40react-navigation/stack%407.10.22",
+      "timestamp": "2026-08-07T19:08:38Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "react-hook-form",
+      "repo": "react-hook-form/react-hook-form",
+      "title": "Version 7.85.0",
+      "summary": "### ✨ Improvements\r",
+      "version": {
+        "current": null,
+        "latest": "7.85.0"
+      },
+      "url": "https://github.com/react-hook-form/react-hook-form/releases/tag/v7.85.0",
+      "timestamp": "2026-08-08T01:10:31Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "@gorhom/bottom-sheet",
+      "repo": "gorhom/react-native-bottom-sheet",
+      "title": "Release 5.2.14",
+      "summary": "## [5.2.14](https://github.com/gorhom/react-native-bottom-sheet/compare/v5.2.13...v5.2.14) (2026-05-09)",
+      "version": {
+        "current": null,
+        "latest": "5.2.14"
+      },
+      "url": "https://github.com/gorhom/react-native-bottom-sheet/releases/tag/v5.2.14",
+      "timestamp": "2026-05-09T18:28:04Z",
+      "relevance": 0
+    },
+    {
+      "type": "release",
+      "tag": "NEW",
+      "package": "react-native-vision-camera",
+      "repo": "mrousavy/react-native-vision-camera",
+      "title": "Release 5.2.2",
+      "summary": "## [5.2.2](https://github.com/mrousavy/react-native-vision-camera/compare/v5.2.1...v5.2.2) (2026-08-05)",
+      "version": {
+        "current": null,
+        "latest": "5.2.2"
+      },
+      "url": "https://github.com/mrousavy/react-native-vision-camera/releases/tag/v5.2.2",
+      "timestamp": "2026-08-05T16:38:00Z",
+      "relevance": 0
+    },
     {
       "type": "release",
       "tag": "NEW",
@@ -34,166 +199,16 @@
     {
       "type": "release",
       "tag": "NEW",
-      "package": "react-native-vision-camera",
-      "repo": "mrousavy/react-native-vision-camera",
-      "title": "Release 5.2.2",
-      "summary": "## [5.2.2](https://github.com/mrousavy/react-native-vision-camera/compare/v5.2.1...v5.2.2) (2026-08-05)",
+      "package": "react-native-vector-icons",
+      "repo": "oblador/react-native-vector-icons",
+      "title": "@react-native-vector-icons/zocial@13.1.2",
+      "summary": "## 13.1.2 (2026-05-24)",
       "version": {
         "current": null,
-        "latest": "5.2.2"
+        "latest": "@react-native-vector-icons/zocial@13.1.2"
       },
-      "url": "https://github.com/mrousavy/react-native-vision-camera/releases/tag/v5.2.2",
-      "timestamp": "2026-08-05T16:38:00Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "@reduxjs/toolkit",
-      "repo": "reduxjs/redux-toolkit",
-      "title": "v2.12.0",
-      "summary": "This **feature release** adds RTK usage skills files (via TanStack Intent) exports the RTK Query hook options types for ",
-      "version": {
-        "current": null,
-        "latest": "2.12.0"
-      },
-      "url": "https://github.com/reduxjs/redux-toolkit/releases/tag/v2.12.0",
-      "timestamp": "2026-05-15T14:38:12Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "@react-navigation/native",
-      "repo": "react-navigation/react-navigation",
-      "title": "@react-navigation/stack@7.10.22",
-      "summary": "## [7.10.22](https://github.com/react-navigation/react-navigation/compare/@react-navigation/stack@7.10.21...@react-navig",
-      "version": {
-        "current": null,
-        "latest": "@react-navigation/stack@7.10.22"
-      },
-      "url": "https://github.com/react-navigation/react-navigation/releases/tag/%40react-navigation/stack%407.10.22",
-      "timestamp": "2026-08-07T19:08:38Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "@gorhom/bottom-sheet",
-      "repo": "gorhom/react-native-bottom-sheet",
-      "title": "Release 5.2.14",
-      "summary": "## [5.2.14](https://github.com/gorhom/react-native-bottom-sheet/compare/v5.2.13...v5.2.14) (2026-05-09)",
-      "version": {
-        "current": null,
-        "latest": "5.2.14"
-      },
-      "url": "https://github.com/gorhom/react-native-bottom-sheet/releases/tag/v5.2.14",
-      "timestamp": "2026-05-09T18:28:04Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "SEC",
-      "package": "axios",
-      "repo": "axios/axios",
-      "title": "v1.19.0",
-      "summary": "## v1.19.0 - July 22, 2026\r",
-      "version": {
-        "current": null,
-        "latest": "1.19.0"
-      },
-      "url": "https://github.com/axios/axios/releases/tag/v1.19.0",
-      "timestamp": "2026-07-26T14:13:32Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "react-hook-form",
-      "repo": "react-hook-form/react-hook-form",
-      "title": "Version 7.85.0",
-      "summary": "### ✨ Improvements\r",
-      "version": {
-        "current": null,
-        "latest": "7.85.0"
-      },
-      "url": "https://github.com/react-hook-form/react-hook-form/releases/tag/v7.85.0",
-      "timestamp": "2026-08-08T01:10:31Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "BREAK",
-      "package": "@gluestack-ui/themed",
-      "repo": "gluestack/gluestack-ui",
-      "title": "🚀 gluestack-ui v5 - Stable Release",
-      "summary": "We are incredibly excited to announce the stable release of **gluestack-ui v5**! This major update brings our alpha work",
-      "version": {
-        "current": null,
-        "latest": "5.0.0"
-      },
-      "url": "https://github.com/gluestack/gluestack-ui/releases/tag/v5.0.0",
-      "timestamp": "2026-06-25T06:44:03Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "nativewind",
-      "repo": "nativewind/nativewind",
-      "title": "react-native-css-interop@0.2.6",
-      "summary": "### Patch Changes",
-      "version": {
-        "current": null,
-        "latest": "react-native-css-interop@0.2.6"
-      },
-      "url": "https://github.com/nativewind/nativewind/releases/tag/react-native-css-interop%400.2.6",
-      "timestamp": "2026-06-22T21:27:22Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "react-native-gesture-handler",
-      "repo": "software-mansion/react-native-gesture-handler",
-      "title": "v3.2.1",
-      "summary": "## 🐛 Bug fixes\r",
-      "version": {
-        "current": null,
-        "latest": "3.2.1"
-      },
-      "url": "https://github.com/software-mansion/react-native-gesture-handler/releases/tag/v3.2.1",
-      "timestamp": "2026-08-14T09:44:43Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "@shopify/flash-list",
-      "repo": "Shopify/flash-list",
-      "title": "v2.3.2",
-      "summary": "## What's Changed\r",
-      "version": {
-        "current": null,
-        "latest": "2.3.2"
-      },
-      "url": "https://github.com/Shopify/flash-list/releases/tag/v2.3.2",
-      "timestamp": "2026-06-10T06:05:22Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "react-native-screens",
-      "repo": "software-mansion/react-native-screens",
-      "title": "4.27.0",
-      "summary": "## What's changed\r",
-      "version": {
-        "current": null,
-        "latest": "4.27.0"
-      },
-      "url": "https://github.com/software-mansion/react-native-screens/releases/tag/4.27.0",
-      "timestamp": "2026-08-07T07:21:34Z",
+      "url": "https://github.com/oblador/react-native-vector-icons/releases/tag/%40react-native-vector-icons/zocial%4013.1.2",
+      "timestamp": "2026-05-24T18:58:44Z",
       "relevance": 0
     },
     {
@@ -209,21 +224,6 @@
       },
       "url": "https://github.com/supabase/supabase-js/releases/tag/v2.112.3",
       "timestamp": "2026-08-11T07:27:34Z",
-      "relevance": 0
-    },
-    {
-      "type": "release",
-      "tag": "NEW",
-      "package": "react-native-vector-icons",
-      "repo": "oblador/react-native-vector-icons",
-      "title": "@react-native-vector-icons/zocial@13.1.2",
-      "summary": "## 13.1.2 (2026-05-24)",
-      "version": {
-        "current": null,
-        "latest": "@react-native-vector-icons/zocial@13.1.2"
-      },
-      "url": "https://github.com/oblador/react-native-vector-icons/releases/tag/%40react-native-vector-icons/zocial%4013.1.2",
-      "timestamp": "2026-05-24T18:58:44Z",
       "relevance": 0
     }
   ]

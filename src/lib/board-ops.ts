@@ -1,4 +1,4 @@
-import type { Board, Column, Draft, Task } from "@/lib/board-types";
+import type { Board, BoardColor, Column, Draft, Task } from "@/lib/board-types";
 
 export type Found = { board: Board; c: Column; t: Task };
 
@@ -29,6 +29,27 @@ export function find(
     if (t) return { board, c, t };
   }
   return null;
+}
+
+export function addBoard(
+  boards: Board[],
+  id: string,
+  input: { name: string; icon: string; color: BoardColor }
+): Board[] {
+  const board: Board = {
+    id,
+    name: input.name.trim() || "Untitled board",
+    icon: input.icon,
+    color: input.color,
+    pinned: false,
+    updatedLabel: "Just now",
+    columns: [
+      { id: `${id}-c1`, name: "To Do", tasks: [] },
+      { id: `${id}-c2`, name: "In Progress", tasks: [] },
+      { id: `${id}-c3`, name: "Done", tasks: [] },
+    ],
+  };
+  return [...boards, board];
 }
 
 export function togglePinned(boards: Board[], boardId: string): Board[] {

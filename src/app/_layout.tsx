@@ -49,6 +49,16 @@ export default function RootLayout() {
               contentStyle: { backgroundColor: "#f2f2f7" },
             }}
           />
+          <Stack.Screen
+            name="board/create"
+            options={{
+              headerShown: true,
+              presentation: "modal",
+              // sheetAllowedDetents: [0.5, 1],
+              // sheetGrabberVisible: true,
+              // contentStyle: { backgroundColor: "#f2f2f7" },
+            }}
+          />
         </Stack>
       </BoardProvider>
     </GestureHandlerRootView>
